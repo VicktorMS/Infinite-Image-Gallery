@@ -4,7 +4,7 @@ import GenImages from "../components/GenImages";
 
 const Home = () => {
   return (
-    <div className="w-full h-full bg-base-100 p-8">
+    <div className="w-full h-full bg-base-100 px-8 py-4">
       <GenImages/>
     </div>
   );

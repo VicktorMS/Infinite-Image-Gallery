@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "./icons/SearchIcon";
+import { useSearchParams } from "react-router-dom";
 
 const Header = () => {
+
+  const [userSearch, setUserSearch] = useState("")
+  // const [searchParams, setSearchParams] = useSearchParams()
+
+
+  const handleOnChangeUserSearch = (e) => {
+    setUserSearch(e.target.value)
+  }
+  const handleOnClickRedirectToSearchPage = () => {
+    userSearch ? console.log(userSearch) : console.log("Digita porra") // Tirar isso
+
+  }
+
   return (
     <div className="bg-base-100 p-6 drop-shadow-sm">
       <h1 className="text-3xl font-bold mb-2">Image Finder</h1>
@@ -10,8 +24,10 @@ const Header = () => {
           type="text"
           placeholder="Type here"
           className="input input-bordered w-full max-w-xs rounded-e-none"
+          onChange={handleOnChangeUserSearch}
+          value={userSearch}
         />
-        <button className="btn btn-primary  rounded-s-none"><SearchIcon/></button>
+        <button onClick={handleOnClickRedirectToSearchPage} className="btn btn-primary  rounded-s-none"><SearchIcon/></button>
       </div>
     </div>
   );

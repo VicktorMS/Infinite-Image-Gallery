@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageCard from "./ImageCard";
 import { useRef, useCallback } from "react";
 import { useInfiniteQuery } from "react-query";
@@ -6,9 +6,9 @@ import { getSearchPhotosPage } from "../service/api";
 import { useSearchParams } from "react-router-dom";
 
 
-const GenSearchPhotos = ({request}) => {
+const GenSearchPhotos = () => {
 
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
     
   const {
@@ -18,6 +18,7 @@ const GenSearchPhotos = ({request}) => {
     status,
     error,
     data,
+    refetch
   } = useInfiniteQuery(
     "/search/photos",
     ({ pageParam = 1 }) => getSearchPhotosPage(pageParam, searchParams.get('query')),
@@ -27,6 +28,10 @@ const GenSearchPhotos = ({request}) => {
       },
     }
   );
+
+  useEffect(() =>{
+    refetch()
+  }, [searchParams])
 
   const intObserver = useRef();
 
@@ -58,7 +63,6 @@ const GenSearchPhotos = ({request}) => {
       return <ImageCard key={photo.id} data={photo} />;
     });
   });
-  console.log(data)
   return (
     <>
       {content}

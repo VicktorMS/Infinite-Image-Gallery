@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchIcon from "./icons/SearchIcon";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, Link } from "react-router-dom";
 
 const Header = () => {
   const [userSearch, setUserSearch] = useState("")
@@ -21,7 +21,7 @@ const Header = () => {
   }
   return (
     <div className="bg-base-100 p-6 drop-shadow-sm">
-      <h1 className="text-3xl font-bold mb-2">Image Finder</h1>
+      <Link to='/'><h1 className="text-3xl font-bold mb-2">Image Finder</h1></Link>
       <div className="flex">
         <input
           type="text"

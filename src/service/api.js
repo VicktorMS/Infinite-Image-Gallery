@@ -14,7 +14,7 @@ export const getPhotosPage = async(pageParam = 1, options = {}) => {
     return response.data
 }
 
-export const searchPhotos = async(pageParam = 1, query ,options = {}) => {
+export const getSearchPhotosPage = async(pageParam = 1, query ,options = {}) => {
     const response = await api.get(`/search/photos?page=${pageParam}&query=${query}`, options)
     return response.data
 }

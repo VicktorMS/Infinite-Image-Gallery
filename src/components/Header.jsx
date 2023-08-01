@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import SearchIcon from "./icons/SearchIcon";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const Header = () => {
-
   const [userSearch, setUserSearch] = useState("")
-  // const [searchParams, setSearchParams] = useSearchParams()
-
+  const [searchParams, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
+  
 
   const handleOnChangeUserSearch = (e) => {
     setUserSearch(e.target.value)
   }
   const handleOnClickRedirectToSearchPage = () => {
-    userSearch ? console.log(userSearch) : console.log("Digita porra") // Tirar isso
-
+    if (userSearch) {
+      navigate(`/search`)
+      // navigate(`/search?query=${userSearch}`)
+      setSearchParams({query: userSearch})
+    } 
+    setUserSearch('')
   }
-
   return (
     <div className="bg-base-100 p-6 drop-shadow-sm">
       <h1 className="text-3xl font-bold mb-2">Image Finder</h1>

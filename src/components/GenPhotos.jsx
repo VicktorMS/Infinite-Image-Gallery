@@ -4,7 +4,7 @@ import { useRef, useCallback } from "react";
 import { useInfiniteQuery } from "react-query";
 import { getPhotosPage } from "../service/api";
 
-const GenImages = () => {
+const GenPhotos = () => {
   const {
     fetchNextPage,
     hasNextPage,
@@ -52,6 +52,8 @@ const GenImages = () => {
       return <ImageCard key={photo.id} data={photo} />;
     });
   });
+  console.log(data)
+
   return (
     <>
       {content}
@@ -60,4 +62,4 @@ const GenImages = () => {
   );
 };
 
-export default GenImages;
+export default GenPhotos;

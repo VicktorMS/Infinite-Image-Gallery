@@ -52,7 +52,6 @@ const GenPhotos = () => {
       return <ImageCard key={photo.id} data={photo} />;
     });
   });
-  console.log(data)
 
   return (
     <>

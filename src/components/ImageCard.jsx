@@ -18,10 +18,10 @@ const ImageCard = React.forwardRef(({ data }, ref) => {
       <img
         src={urls.regular}
         alt={altDescription}
-        className="w-full object-cover h-max rounded-lg drop-shadow-md"
+        className="w-full object-cover h-max rounded-lg drop-shadow-md -z-10"
       />
       <div className=" p-2 h-14 flex items-center gap-2">
-        <img src={profileImage.small} className="rounded-full drop-shadow-sm" />
+        <img src={profileImage.small} className="rounded-full drop-shadow-sm -z-10" />
         <div>
           <p className="font-semibold text-md">{name}</p>
           <p className="text-sm text-slate-500 font-medium">@{username}</p>
@@ -30,11 +30,11 @@ const ImageCard = React.forwardRef(({ data }, ref) => {
     </>
   );
   const content = ref ? (
-    <article ref={ref} className="w-full max-w-[500px] mb-4">
+    <article ref={ref} className="w-full max-w-[500px] mb-4 -z-10">
       {photoBody}
     </article>
   ) : (
-    <article className="w-full max-w-[500px] mb-4">{photoBody}</article>
+    <article className="w-full max-w-[500px] mb-4 -z-10">{photoBody}</article>
   );
   return content;
 });

@@ -25,7 +25,7 @@ const Header = () => {
         <Link to="/" className="">
           <h1 className="text-3xl font-bold mb-2">Image Finder</h1>
         </Link>
-        <div className="">
+        <div className="z-50">
           <Drawer />
         </div>
       </div>

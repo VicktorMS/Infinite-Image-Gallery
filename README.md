@@ -28,6 +28,13 @@ Depois faça a instalação das dependencias.
   cd image-searcher
   npm install 
 ```
+Após a instalação das dependências é necessário apenas inicializar o projeto.
+
+```bash
+  npm run dev 
+```
+
+## Variáveis de Ambiente
 
 Após a instalação das dependencias é necessário a criação de uma arquivo `.env` que armazena as chaves da API Unsplash.
 

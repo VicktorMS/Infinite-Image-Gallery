@@ -5,7 +5,7 @@ const Drawer = () => {
   return (
     <div className="drawer z-50">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content z-50">
         <label htmlFor="my-drawer" className="drawer-button">
           <MenuIcon/>
         </label>

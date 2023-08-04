@@ -4,9 +4,9 @@
 
 
 body {
-    @apply w-screen h-screen
+    @apply w-screen h-screen 
 }
 
 #root{
-    @apply w-screen h-screen
+    @apply w-screen h-screen overflow-x-hidden
 }

@@ -3,6 +3,10 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import LikeIcon from "./icons/LikeIcon";
 import CubeIcon from "./icons/CubeIcon";
+import DownloadIcon from "./icons/DownloadIcon";
+import BackArrowIcon from "./icons/BackArrowIcon";
+import ReadMoreReact from "read-more-react";
+import DropdownButton from "./DropdownButton";
 
 const Modal = ({ children, data }) => {
   const {
@@ -30,8 +34,8 @@ const Modal = ({ children, data }) => {
       <input type="checkbox" id={id} className="modal-toggle" />
 
       <div className="modal p-4">
-        <div className="bg-base-100 rounded-lg max-h-screen h-[95%] overflow-y-auto w-full">
-          <div className="flex items-center justify-between drop-shadow-sm bg-base-100 p-4 rounded-t-lg">
+        <div className="bg-base-100 rounded-lg max-h-[700px] h-[90%]  w-full max-w-3xl">
+          <div className="flex items-center justify-between drop-shadow-sm bg-base-100 p-4 w-full h-18 rounded-t-lg ">
             <div>
               <h3 className="font-bold text-lg">Photo by {name}</h3>
               <p className="text-sm">@{username}</p>
@@ -41,30 +45,36 @@ const Modal = ({ children, data }) => {
             </p>
           </div>
 
-          <div className="items-center flex flex-col gap-2 p-4 h-full bg-base-100">
+          <div className="items-center flex flex-col gap-2 p-4 h-full bg-base-100 overflow-y-auto">
             <img
               src={urls.full}
               className={`rounded-lg max-h-[70%]`}
               alt={altDescription}
             />
-            <div>
-              <div className="modal-action">
+
+            {description && <p className="text-sm px-4">{description}</p>}
+
+            <div className="modal-action flex justify-between w-full">
+              <div className="flex items-center gap-2">
                 <button className="btn">
-                  <Link to={links.html}>Unsplash</Link>
+                  <Link to={links.html}>
+                    <img src="public/icons/unsplashIcon.svg" alt='unsplash icon' className="w-5"/>
+                  </Link>
                 </button>
-                <button className="btn">Download</button>
-                <label htmlFor={id} className="btn">
-                  Back
-                </label>
+                <DropdownButton/>
               </div>
+              <label htmlFor={id} className="btn btn-secondary">
+                <BackArrowIcon />
+              </label>
             </div>
+
             <div className="w-full mt-4">
               <div className="flex items-center gap-1">
                 <CubeIcon />
                 <p className="text-lg font-semibold">
                   Dimensions:{" "}
                   <span className="font-normal">
-                    {height} x {width}
+                    {height}px x {width}px
                   </span>
                 </p>
               </div>
@@ -84,11 +94,6 @@ const Modal = ({ children, data }) => {
                 <p className="text-lg font-semibold">
                   Color: <span className="font-normal">{color}</span>
                 </p>
-              </div>
-
-              <div>
-                <h4>Description</h4>
-                <p>{description}</p>
               </div>
             </div>
           </div>

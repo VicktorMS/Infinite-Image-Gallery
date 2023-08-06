@@ -1,12 +1,14 @@
 /* eslint-disable react/display-name */
 import React from "react";
 import Modal from "./Modal";
+import ImageWithBlur from "./ImageWithBlur";
 
 const ImageCard = React.forwardRef(({ data }, ref) => {
   const {
     id,
     color,
     alt_description: altDescription,
+    blur_hash: blurHash,
     urls,
     likes,
     user,
@@ -17,11 +19,17 @@ const ImageCard = React.forwardRef(({ data }, ref) => {
   const photoBody = (
     <>
       <Modal data={data}>
-        <img
+        {/* <img
           src={urls.regular}
           alt={altDescription}
           className="w-full object-cover h-max rounded-lg drop-shadow-md"
-        />
+        /> */}
+        <ImageWithBlur
+          src={urls.regular}
+          alt={altDescription}
+          blurHash={blurHash}
+          className="w-full object-cover h-max rounded-lg drop-shadow-md"
+       />
         <div className=" p-2 h-14 flex items-center gap-2">
           <img
             src={profileImage.small}

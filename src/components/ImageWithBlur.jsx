@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Blurhash } from "react-blurhash";
 
-const ImageWithBlur = ({ src, alt, blurHash, className }) => {
-
+const ImageWithBlur = ({ src, alt, blurHash, className, height, width }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   useEffect(() => {
     const img = new Image();
@@ -12,14 +11,25 @@ const ImageWithBlur = ({ src, alt, blurHash, className }) => {
     };
     img.src = src;
   }, [src]);
-    // const imageLoaded = true 
+
+  const standardWidth = 400
+
+  const originalProportion = width / height
+
+  const newHeight = standardWidth / originalProportion
+
+  // const imageLoaded = false
+
+
   return (
     <>
-      <div style={{ display: !imageLoaded ? "inline" : "none" }}>
+      <div style={{ display: !imageLoaded ? "inline" : "none" }}
+        className="max-w-[500px] h-96 rounded-full"
+      >
         <Blurhash
-          hash={"LoC%a7IoIVxZ_NM|M{s:%hRjWAo0"}
-          width={500}
-          height={500}
+          hash={blurHash}
+          height={newHeight}
+          width={standardWidth}
           resolutionX={32}
           resolutionY={32}
           punch={1}

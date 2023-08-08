@@ -53,6 +53,8 @@ const GenSearchPhotos = () => {
     [isFetchingNextPage, fetchNextPage, hasNextPage]
   );
 
+  if (status === 'loading') return (<span className="loading loading-spinner text-primary loading-lg"></span>)
+
   if (status == "error") return "Error fetching" + error.message;
 
   const content = data?.pages.map((pg) => {

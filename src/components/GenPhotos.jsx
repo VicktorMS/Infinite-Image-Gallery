@@ -42,7 +42,9 @@ const GenPhotos = () => {
     [isFetchingNextPage, fetchNextPage, hasNextPage]
   );
 
-  if (status == "error") return "Error fetching" + error.message;
+  if (status === 'loading') return (<span className="loading loading-spinner text-primary loading-lg"></span>)
+
+  if (status === "error") return "Error fetching" + error.message;
 
   const content = data?.pages.map((pg) => {
     return pg.map((photo, i) => {
@@ -56,7 +58,7 @@ const GenPhotos = () => {
   return (
     <>
       {content}
-      {isFetchingNextPage && <p>Loading More Posts...</p>}
+      {isFetchingNextPage && <span className="loading loading-spinner text-primary"></span>}
     </>
   );
 };

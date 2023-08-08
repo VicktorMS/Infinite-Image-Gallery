@@ -9,6 +9,8 @@ const ImageCard = React.forwardRef(({ data }, ref) => {
     color,
     alt_description: altDescription,
     blur_hash: blurHash,
+    height,
+    width,
     urls,
     likes,
     user,
@@ -19,14 +21,11 @@ const ImageCard = React.forwardRef(({ data }, ref) => {
   const photoBody = (
     <>
       <Modal data={data}>
-        {/* <img
-          src={urls.regular}
-          alt={altDescription}
-          className="w-full object-cover h-max rounded-lg drop-shadow-md"
-        /> */}
         <ImageWithBlur
           src={urls.regular}
           alt={altDescription}
+          height={height}
+          width={width}
           blurHash={blurHash}
           className="w-full object-cover h-max rounded-lg drop-shadow-md"
        />

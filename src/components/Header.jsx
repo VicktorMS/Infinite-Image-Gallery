@@ -23,11 +23,8 @@ const Header = () => {
     <div className="bg-base-100 p-6 drop-shadow-sm">
       <div className="flex justify-between w-full items-center mb-4">
         <Link to="/" className="">
-          <h1 className="text-3xl font-bold mb-2">Image Finder</h1>
+          <h1 className="text-3xl font-bold mb-2">Infinite Gallery</h1>
         </Link>
-        <div className="z-50">
-          <Drawer />
-        </div>
       </div>
       <div className="flex">
         <input

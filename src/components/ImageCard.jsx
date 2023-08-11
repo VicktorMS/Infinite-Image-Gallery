@@ -43,11 +43,11 @@ const ImageCard = React.forwardRef(({ data }, ref) => {
     </>
   );
   const content = ref ? (
-    <article ref={ref} className="w-full max-w-[500px] mb-4 z-10 inline-block">
+    <article ref={ref} className="w-full max-w-[500px] mb-4 z-10 inline-block ">
       {photoBody}
     </article>
   ) : (
-    <article className="w-full max-w-[500px] mb-4 inline-block">
+    <article className="w-full max-w-[500px] mb-4 z-10 inline-block">
       {photoBody}
     </article>
   );

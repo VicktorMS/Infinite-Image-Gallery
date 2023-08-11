@@ -58,7 +58,7 @@ const Modal = ({ children, data }) => {
               <div className="flex items-center gap-2">
                 <button className="btn">
                   <Link to={links.html}>
-                    <img src="public/icons/unsplashIcon.svg" alt='unsplash icon' className="w-5"/>
+                    <img src="/icons/unsplashIcon.svg" alt='unsplash icon' className="w-5"/>
                   </Link>
                 </button>
                 <DropdownButton/>
